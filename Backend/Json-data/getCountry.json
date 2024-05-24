@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "nameOfCountry":"New-York"
+    },
+    {
+        "id":2,
+        "nameOfCountry":"Tokyo"
+    },
+    {
+        "id":3,
+        "nameOfCountry":"London"
+    },
+    {
+         "id":4,
+         "nameOfCountry":"Paris"
+    },
+    {
+        "id":5,
+        "nameOfCountry":"Amsterdam"
+    },
+    {
+        "id":6,
+        "nameOfCountry":"Copenhagen"
+    }
+]

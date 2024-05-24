@@ -1,0 +1,90 @@
+<!-- <section class="background-radial-gradient overflow-hidden">
+ 
+
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          Best deals are <br />
+          <span style="color: hsl(218, 81%, 75%)">waiting for you</span>
+        </h1>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form>
+             
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Email address</label>
+                <input type="text" appCopyUserName class="form-control" autocomplete="off"  name="username"
+                id="username" formControlName="username"  class="form-control" />
+              
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="form3Example4">Password</label>
+                <input alue='' type="password" class="form-control" 
+                autocomplete="new-password" name="password"  id="password" formControlName="password"/>
+               
+              </div>
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+               Login
+              </button>
+
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div class="full-width-background ">
+  <app-header></app-header>
+  <div class="content  text-white">
+    <div class="row justify-content-end">
+      <div class="col-md-6 col-lg-6 col-sm-6">
+        <div class="card" style="margin-top: 16%;margin-right: 10%;">
+          <div class="card-header text-center">
+            <h1>Login</h1>
+          </div>
+          <div class="card-body ">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group mb-3">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" autocomplete="off"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" autocomplete="off"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              
+              <div class="form-group mt-3">
+                <button class="btn btn-success btn-lg btn-block">Login</button>
+              </div>
+              <div class="text-center">
+                <a routerLink="/sign-up">Don't have account ? SignUp</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

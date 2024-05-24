@@ -1,0 +1,146 @@
+<main class="content-area">
+    <div class="container-fluid">
+        <div *ngIf="isOneWayROuteType; else roundTripTemplate">
+            <!-- Render single list of flights -->
+            <h3 class="text-center">Flight List</h3>
+            <div class="row" *ngFor="let dataFly of routeList;let i =index">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="card mt-5 card-shadow card-for-airlines">
+                        <table class="table">
+                            <tr>
+                                <th style="width: 12%;">{{dataFly.route.flight.airline}}</th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.flight.departureTime}}</div>
+                                    <div>{{dataFly.route.flight.departureAirport}}</div>
+                                </th>
+                                <th style="width:10%" class="text-center">
+                                    <div>{{dataFly.route.flight.totalrequiredHours}}</div>
+                                    <div style="border-bottom: 1px solid gray;"></div>
+                                    <div>Non-Stop</div>
+                                </th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.flight.arrivalTime}}</div>
+                                    <div>{{dataFly.route.flight.destinationAirport}}</div>
+                                </th>
+                                <th style="width:10%">&#x20b9; {{dataFly.totalofAllPassengers}}</th>
+                                <th style="width:15%">
+                                    <button type="submit" class="btn btn-warning btn-rounded"
+                                        (click)="onClickBooking('OneWay',i)">Book</button>
+                                    <div class="text-warning">Flight Details</div>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #roundTripTemplate>
+            <!-- Render two lists for outbound and return flights -->
+            <div class="row" *ngFor="let dataFly of routeList;let i =index">
+                <div class="col-md-6">
+                    <!-- Outbound flight card layout -->
+                    <div class="card mt-5 card-shadow card-for-airlines">
+                        <table class="table">
+                            <tr>
+                                <th style="width: 12%;">{{dataFly.route.outboundFlight.airline}}</th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.outboundFlight.departureTime}}</div>
+                                    <div>{{dataFly.route.outboundFlight.departureAirport}}</div>
+                                </th>
+                                <th style="width:10%" class="text-center">
+                                    <div>{{dataFly.route.outboundFlight.totalrequiredHours}}</div>
+                                    <div style="border-bottom: 1px solid gray;"></div>
+                                    <div>Non-Stop</div>
+                                </th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.outboundFlight.arrivalTime}}</div>
+                                    <div>{{dataFly.route.outboundFlight.destinationAirport}}</div>
+                                </th>
+                                <th style="width:10%">&#x20b9; {{dataFly.totalofOutBound
+                                    }}</th>
+                                <th style="width:15%">
+                                    <input type="radio" [value]="'Onward-' + i"
+                                        [(ngModel)]="dataFly.route.outboundFlight.Onward" [id]="'Onward-' + i"
+                                        [checked]="dataFly.route.outboundFlight.Onward" name="Onward"
+                                        (ngModelChange)="checkOnwardOutBound(dataFly,dataFly.route.outboundFlight.Onward,i)"
+                                        required>
+
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Return flight card layout -->
+                    <div class="card mt-5 card-shadow card-for-airlines">
+                        <table class="table">
+                            <tr>
+                                <th style="width: 12%;">{{dataFly.route.returnFlight.airline}}</th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.returnFlight.departureTime}}</div>
+                                    <div>{{dataFly.route.returnFlight.departureAirport}}</div>
+                                </th>
+                                <th style="width:10%" class="text-center">
+                                    <div>{{dataFly.route.returnFlight.totalrequiredHours}}</div>
+                                    <div style="border-bottom: 1px solid gray;"></div>
+                                    <div>Non-Stop</div>
+                                </th>
+                                <th style="width:15%">
+                                    <div>{{dataFly.route.returnFlight.arrivalTime}}</div>
+                                    <div>{{dataFly.route.returnFlight.destinationAirport}}</div>
+                                </th>
+                                <th style="width:10%">&#x20b9; {{dataFly.totalOfReturn}}</th>
+                                <th style="width:15%">
+                                    <input type="radio" [value]="'Return-' + i"
+                                        [(ngModel)]="dataFly.route.returnFlight.Return" [id]="'Return-' + i"
+                                        [checked]="dataFly.route.returnFlight.Return" name="Return"
+                                        (ngModelChange)="checkReturnBound(dataFly,dataFly.route.returnFlight.Return,i)"
+                                        required>
+
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div *ngIf="finalRouteList.length"
+        style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-shadow card-for-airlines">
+                    <table class="table">
+                        <tr>
+                            <th style="width: 40%;">Onward {{outboundFlight.airline}} &nbsp;
+                                {{outboundFlight.flightNumber}}</th>
+                            <th style="width: 40%;">Return {{returnFlight.airline}} &nbsp; {{returnFlight.flightNumber}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width:15%">
+                                <div>{{outboundFlight.departureTime}} {{outboundFlight.arrivalTime}}</div>
+                                <div>
+                                    <p class="body-xs text-secondary">{{outboundFlight.totalrequiredHours}} • Non-stop
+                                    </p>
+                                </div>
+                            </th>
+                            <th style="width:15%">
+                                <div>{{returnFlight.departureTime}} {{returnFlight.arrivalTime}}</div>
+                                <div>
+                                    <p class="body-xs text-secondary">{{returnFlight.totalrequiredHours}} • Non-stop</p>
+                                </div>
+                            </th>
+                            <th style="width:10%">&#x20b9; {{totalOfAllFare}}</th>
+                            <th style="width:15%">
+                                <button type="submit" class="btn btn-warning btn-rounded"
+                                    (click)="onClickBooking('RoundTrip',1)">Book</button>
+                                <div class="text-warning">Flight Details</div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

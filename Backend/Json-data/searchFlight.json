@@ -1,0 +1,143 @@
+[
+    {
+        "type": "OneWay",
+        "flight": {
+            "airline": "IndiGo",
+            "flightNumber": "6E 468",
+            "departureAirport": "DEL",
+            "destinationAirport": "BOM",
+            "departureTime": "08:00",
+            "arrivalTime": "10:00",
+            "totalrequiredHours":"1h 55m",
+            "basePriceAdult": 3000,
+            "basePriceChild": 1200,
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": ["2024-05-27","2024-05-26","2024-05-18"
+                
+            ],
+            "arrivalDates":[]
+
+        }
+    },
+    {
+        "type": "OneWay",
+        "flight": {
+            "airline": "Air India",
+            "flightNumber": "AI 101",
+            "departureAirport": "DEL",
+            "destinationAirport": "BOM",
+            "departureTime": "10:30",
+            "arrivalTime": "12:30",
+            "totalrequiredHours":"2h 55m",
+            "basePriceAdult": 4000,
+            "basePriceChild": 1500,
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": [
+                "2024-05-12","2024-05-26","2024-05-27","2024-05-21"
+            ],
+            "arrivalDates":[]
+        }
+    },
+    {
+        "type": "OneWay",
+        "flight": {
+            "airline": "Air India",
+            "flightNumber": "AI 101",
+            "departureAirport": "DEL",
+            "destinationAirport": "BOM",
+            "departureTime": "10:30",
+            "arrivalTime": "12:30",
+            "totalrequiredHours":"1h 55m",
+            "basePriceAdult": 3000,
+            "basePriceChild": 1200,
+            "nameOfRoute": "Londonk-Paris",
+            "sourceId":3,
+            "destinationId":4,
+            "departureDates": ["2024-05-12","2024-05-26","2024-05-27","2024-05-16","2024-05-17","2024-05-21"
+            ],
+            "arrivalDates":[]
+        }
+    },
+    {
+        "type": "RoundTrip",
+        "outboundFlight": {
+            "airline": "IndiGo",
+            "flightNumber": "6E 468",
+            "departureAirport": "DEL",
+            "destinationAirport": "BOM",
+            "departureTime": "08:00",
+            "arrivalTime": "10:00:",
+            "totalrequiredHours":"1h 25m",
+            "basePriceAdult": 4600,
+            "basePriceChild": 2000,
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": [ "2024-05-12"
+                
+            ],
+            "arrivalDates":["2024-05-26"]
+        },
+        "returnFlight": {
+            "airline": "Air India",
+            "flightNumber": "AI 101",
+            "departureAirport": "BOM",
+            "destinationAirport": "DEL",
+            "departureTime": "12:00",
+            "arrivalTime": "14:00",
+            "basePriceAdult": 4000,
+            "basePriceChild": 1500,
+            "totalrequiredHours":"2h",
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": [ "2024-05-12"
+                
+        ],
+        "arrivalDates":["2024-05-26"]
+        }
+    },
+    {
+        "type": "RoundTrip",
+        "outboundFlight": {
+            "airline": "IndiGo",
+            "flightNumber": "6E 468",
+            "departureAirport": "NGP",
+            "destinationAirport": "DEL",
+            "departureTime": "08:00",
+            "arrivalTime": "10:00:",
+            "totalrequiredHours":"1h 25m",
+            "basePriceAdult": 3600,
+            "basePriceChild": 2000,
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": [ "2024-05-25","2024-05-24","2024-05-21"
+                
+            ],
+            "arrivalDates":["2024-05-25","2024-05-24","2024-05-21"]
+        },
+        "returnFlight": {
+            "airline": "Air India",
+            "flightNumber": "AI 101",
+            "departureAirport": "DEL",
+            "destinationAirport": "NGP",
+            "departureTime": "12:00",
+            "arrivalTime": "14:00",
+            "basePriceAdult": 4000,
+            "basePriceChild": 1500,
+            "totalrequiredHours":"2h",
+            "nameOfRoute": "New-York-Tokyo",
+            "sourceId":1,
+            "destinationId":2,
+            "departureDates": [ "2024-05-25","2024-05-24","2024-05-21"
+                
+        ],
+        "arrivalDates":["2024-05-25","2024-05-24","2024-05-21"]
+        }
+    }
+]

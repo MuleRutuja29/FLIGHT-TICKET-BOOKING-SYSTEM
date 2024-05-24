@@ -1,0 +1,58 @@
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+   
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container-fluid {
+    font-size: 16px;
+    color: #2c2c2c;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-image: url(https://t4.ftcdn.net/jpg/02/68/16/31/360_F_268163179_NaOUk90y7UxfRu30RYPV2x484KN8alko.jpg); 
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.carousel-img {
+    height: 647px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background to the text */
+    padding: 10px;
+  }
+  .carousel-caption-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background to the text */
+    color: white; /* Text color */
+    padding: 10px;
+    text-align: center;
+    z-index: 10; /* Ensures the caption is above the image */
+  }
+
+
+  .for-name-of-flight{
+    font-size: 48px;
+  }
+
+
+  .round-image {
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+    margin-right: 10px; /* Space between the image and the text */
+  }

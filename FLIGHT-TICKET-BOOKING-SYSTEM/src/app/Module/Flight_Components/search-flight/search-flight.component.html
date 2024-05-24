@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper" id="loading">
+        <app-header></app-header>
+    </div>
+
+    <main class="content-area">
+        <div class="container-fluid">
+            <div class="row" #headingWrapper>
+                <div class="col-lg-8 col-md-6 col-sm-4">
+                    <form (submit)="handleFormSubmit(payloadData)" ngNativeValidate>
+                        <div class="card card-p20 shadow booking-form">
+                            <h3>Search Flight</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-8">
+                                        <label class="container-radio mx-2">One Way
+                                            <input type="radio" value="OneWay" [(ngModel)]="payloadData.tripType"
+                                                id="OneWay" name="tripType">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="container-radio">Round Trip
+                                            <input type="radio" value="RoundTrip" [(ngModel)]="payloadData.tripType"
+                                                id="RoundTrip" name="tripType">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Flying from</span>
+                                        <select id="from" name="sourceId" class="form-control departsfrom-select"
+                                            [(ngModel)]="payloadData.sourceId"
+                                            (change)="onchangeSorce(payloadData.sourceId)">
+                                            <option value="null" disabled selected>Choose</option>
+                                            <option *ngFor="let data of sourceList" [ngValue]="data.id">
+                                                {{data.nameOfCountry}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Flying to</span>
+                                        <select id="to" name="destinationId" class="form-control departsfrom-select"
+                                            (change)="onchangeDestination()" [(ngModel)]="payloadData.destinationId">
+                                            <option value="null" disabled selected>Choose</option>
+                                            <option *ngFor="let dest of destinationList" [ngValue]="dest.id">
+                                                {{dest.nameOfCountry}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Departing</span>
+                                        <input class="form-control" type="date" name="departureDate" value="dd-mm-yyyy"
+                                            [(ngModel)]="payloadData.departureDate" [min]="getToday()">
+                                    </div>
+                                </div>
+                                <div class="col-md-5" *ngIf="payloadData.tripType === 'RoundTrip'">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Returning</span>
+                                        <input class="form-control" type="date" name="arrivalDate"
+                                            [(ngModel)]="payloadData.arrivalDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Adults (18+)</span>
+                                        <select class="form-control" [(ngModel)]="payloadData.adultCount"
+                                            name="adultCount">
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Children (0-17)</span>
+                                        <select class="form-control" [(ngModel)]="payloadData.childrenCount"
+                                            name="childrenCount">
+                                            <option value="0" selected>0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group has-float-label">
+                                        <span class="form-label">Travel class</span>
+                                        <select class="form-control" [(ngModel)]="payloadData.flightClass"
+                                            name="flightClass">
+                                            <option value="null" disabled selected>Choose</option>
+                                            <option value="economy">Economy</option>
+                                            <option value="business">Business</option>
+                                            <option value="firstClass">First Class</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-btn">
+                                        <button class="btn btn-success btn-lg" type="submit">Show flights</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
