@@ -72,7 +72,7 @@
                                     <div class="form-group has-float-label">
                                         <span class="form-label">Returning</span>
                                         <input class="form-control" type="date" name="arrivalDate"
-                                            [(ngModel)]="payloadData.arrivalDate">
+                                            [(ngModel)]="payloadData.arrivalDate" [min]="getToday()">
                                     </div>
                                 </div>
                                 <div class="col-md-3">

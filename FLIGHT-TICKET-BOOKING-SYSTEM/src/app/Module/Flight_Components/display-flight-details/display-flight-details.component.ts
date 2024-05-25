@@ -99,9 +99,9 @@ export class DisplayFlightDetailsComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
-    // Clearing the specific item
-    localStorage.removeItem('finalRouteList');
-  }
+  // ngOnDestroy() {
+  //   // Clearing the specific item
+  //   localStorage.removeItem('finalRouteList');
+  // }
 
 }
